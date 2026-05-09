@@ -2,7 +2,11 @@
 
 ## Status
 
-Proposed. Authored alongside slice 85 (`docs/slices/slice-85-capability-claim-graph-public-read-endpoints.md`); slice 85 is the first implementation of the principles recorded here. Builds on ADR 0029 (`docs/adr/0029-public-manifest-read-surface-for-authorised-buyer-agents.md`) by extending the buyer-facing read surface from per-package manifest reads to direct claim-graph queries that do not require a pursuit or submission package.
+Accepted (2026-05-04 — slice 85 ship). Authored alongside slice 85 (`docs/slices/slice-85-capability-claim-graph-public-read-endpoints.md`); slice 85 was the first implementation of the principles recorded here and shipped them: the v2 `external_buyer_credential.scope` extension with the optional `claimGraph` clause, three buyer-facing read endpoints under `/api/v1/buyer-facing/claim-graph/*`, two new audit event types (`claim_graph_read_completed`, `claim_graph_read_rejected`), per-response JWS signing via the slice-74 `signTenantEnvelope` helper, and the marked-conflict redaction discipline (per ADR 0025 §5). Builds on ADR 0029 (`docs/adr/0029-public-manifest-read-surface-for-authorised-buyer-agents.md`) by extending the buyer-facing read surface from per-package manifest reads to direct claim-graph queries that do not require a pursuit or submission package.
+
+The Phase B counterparty-gate amendment below records the operational gating posture; the durable architectural design recorded here was implemented as written.
+
+Open follow-ups (tracked separately, do not affect this ADR's principles): the per-tier credential allowance enforcement (`enforceCredentialQuota` precheck) and the agent-ops-meter wiring for claim-graph reads at the discount weight (per `project_pricing_two_flow_levers.md`). Both are billing-side, not architectural.
 
 **Amended 2026-05-05 by ADR 0032** (M2M Roadmap Pause). Two amendments apply; the durable design is unchanged:
 

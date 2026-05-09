@@ -2,7 +2,9 @@
 
 ## Status
 
-Accepted (2026-05-07). Slice 70 (`docs/slices/slice-70-structured-rfx-adapter-ddq-rows.md`) shipped the first implementation: `packages/structured-rfx-adapters/` houses the `StructuredRfxAdapter<TInput>` contract, the in-process registry, the orchestrator (with injectable persistence sink), and the three concrete adapters (CAIQ v4, SIG-Lite, SIG-Core). Migration `0043_slice_70_structured_rfx_adapters.sql` adds the `requirement_standard_schema` extension, the `produced_by_adapter_*` provenance discriminator on `requirement` / `opportunity` / `evaluation_criterion`, the `content_asset` standard-schema tag, and the `structured_rfx_adapter_run` per-run audit row. The orchestrator is wired into the slice-21 `parseQuestionnaireDocument` as a schema-recognition pre-step. Subsequent structured-target slices (slice 71 SAM.gov, slice 73 Ariba, slice 79 OCDS) extend the same contract.
+Accepted (2026-05-07). Slice 70 (`docs/slices/slice-70-structured-rfx-adapter-ddq-rows.md`) shipped the first implementation: `packages/structured-rfx-adapters/` houses the `StructuredRfxAdapter<TInput>` contract, the in-process registry, the orchestrator (with injectable persistence sink), and the three concrete adapters (CAIQ v4, SIG-Lite, SIG-Core). Migration `0043_slice_70_structured_rfx_adapters.sql` adds the `requirement_standard_schema` extension, the `produced_by_adapter_*` provenance discriminator on `requirement` / `opportunity` / `evaluation_criterion`, the `content_asset` standard-schema tag, and the `structured_rfx_adapter_run` per-run audit row. The orchestrator is wired into the slice-21 `parseQuestionnaireDocument` as a schema-recognition pre-step.
+
+Slice 71 (`docs/slices/slice-71-structured-rfx-adapter-sam-gov-opportunity-fields.md`) shipped 2026-05-09 as the first `public_structured` adapter — `sam-gov/structured-opportunity/v1`. It composes with the slice-02 SAM.gov source adapter (which now delegates field mapping) and the slice-59 binary-capture pipeline; an opportunity-flavoured orchestrator sink at `apps/api/src/modules/opportunities/structured-opportunity-sink.ts` runs alongside the slice-70 requirement-flavoured sink. Migration `0046_slice_71_sam_gov_structured_opportunity.sql` adds the `opportunity_source_metadata` source-only extension table (§3 case-2; generic across adapters) and the `opportunity_field_extraction_disagreement` forensic side table for §10 structured-vs-extracted disagreements. `AdapterContext.tenantId` widens to `string | null` so `public_structured` runs can dispatch through the orchestrator without a tenant context. Subsequent structured-target slices (slice 73 Ariba, slice 79 OCDS) extend the same contract.
 
 ## Context
 
@@ -245,7 +247,7 @@ Rejected. The §10 asymmetry rule (structured wins) is simple, predictable, and 
 ## Follow-on implications
 
 - **Slice 70** is the first implementation. CAIQ v4, SIG-Lite, SIG-Core adapters; the orchestrator; the `requirement_standard_schema` extension; document-extractor schema-recognition pre-step.
-- **Slice 71** ships the SAM.gov structured-opportunity adapter, composed with the existing slice-59 binary capture and slice-02 source-adapter machinery.
+- **Slice 71** shipped (2026-05-09) the SAM.gov structured-opportunity adapter, composed with the existing slice-59 binary capture and slice-02 source-adapter machinery. First `public_structured` adapter; introduced the `opportunity_source_metadata` extension (§3 case-2), the §10 disagreement-detection helper, and the opportunity-flavoured orchestrator sink alongside slice-70's requirement sink.
 - **Slice 73** ships the Ariba adapter (likely 73a/b/c given Ariba's surface area), with its own credential wiring.
 - **Slice 79** ships the OCDS adapter.
 - **ADR 0002 amendment** records the `requirement_standard_schema` extension.
@@ -397,7 +399,7 @@ amendment.
 ## References
 
 - Slice 70 — `docs/slices/slice-70-structured-rfx-adapter-ddq-rows.md` (first implementation of this ADR)
-- Slice 71 — SAM.gov structured-opportunity adapter (planned)
+- Slice 71 — SAM.gov structured-opportunity adapter (shipped 2026-05-09; `docs/slices/slice-71-structured-rfx-adapter-sam-gov-opportunity-fields.md`)
 - Slice 73 — Ariba structured procurement adapter (planned)
 - Slice 79 — OCDS adapter (planned)
 - ADR 0002 — canonical procurement model (the substrate adapters map to)

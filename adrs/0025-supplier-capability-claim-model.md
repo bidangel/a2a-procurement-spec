@@ -2,7 +2,7 @@
 
 ## Status
 
-Proposed. Authored alongside slice 68 (`docs/slices/slice-68-capability-claims-schema-approval-and-freshness.md`); slice 68 is the first implementation of the principles recorded here. Expected to be updated by the slice-68 implementation as edge cases are discovered.
+Accepted (2026-05-07 — slice 68 ship). Authored alongside slice 68 (`docs/slices/slice-68-capability-claims-schema-approval-and-freshness.md`); slice 68 was the first implementation of the principles recorded here and shipped them: the `capability_claim` table plus the four junction tables (`capability_claim_evidence`, `capability_claim_category`, `capability_claim_jurisdiction`, `capability_claim_conflict`), the `computeClaimFreshness` helper, the supersession-not-edit pattern for approved claims, and the reviewer queue with text `artifact_type` discriminator. Subsequent slices (69 manifest population, 75 signing, 82 buyer-readable manifests, 85 claim-graph public reads) extend the noun without amending this ADR's durable principles.
 
 ## Context
 
@@ -70,7 +70,7 @@ This is the load-bearing approval invariant: **an approved claim always has at l
 
 ### 4. Claim approval is independent of evidence approval; freshness is computed
 
-A claim's `approvalState` (`draft | pending_approval | approved | rejected | retired`) is independent of the `approvalState` on its linked content_assets. An approved claim can sit on top of evidence that was approved months earlier; an evidence asset can be re-approved (a new revision uploaded, re-reviewed) without re-approving every claim that cites it; a claim can be approved and then later become _evidence-stale_ if the underlying evidence is retired or expires.
+A claim's `approvalState` (`draft | pending_approval | approved | rejected | retired`) is independent of the `approvalState` on its linked content*assets. An approved claim can sit on top of evidence that was approved months earlier; an evidence asset can be re-approved (a new revision uploaded, re-reviewed) without re-approving every claim that cites it; a claim can be approved and then later become \_evidence-stale* if the underlying evidence is retired or expires.
 
 Freshness is the dimension that captures the composed reality. A claim's `freshnessState` (`current | aging | stale | expired`) is **computed, not stored**, from four inputs:
 
