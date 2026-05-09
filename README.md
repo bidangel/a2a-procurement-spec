@@ -10,6 +10,9 @@ UBL 2.3 / Peppol BIS Pre-Award / OCDS 1.1.5 / EU eForms semantics.
 > Authoritative authoring lives upstream in the BidAngel platform
 > repository; published artifacts here are derived and provenanced
 > (see `PROVENANCE.md`).
+>
+> **Intent to author** the Extension URI was recorded on 2026-05-10 —
+> see [`correspondence/2026-05-10-aaif-intent-to-author.md`](correspondence/2026-05-10-aaif-intent-to-author.md).
 
 ## Why this profile exists
 
@@ -30,14 +33,15 @@ the agent-to-agent workflow surface genuinely lacks an existing fit
 
 ## What's in this repository
 
-| Directory       | Contents                                                      |
-| --------------- | ------------------------------------------------------------- |
-| `adrs/`         | Architecture Decision Records that establish the profile      |
-| `crosswalks/`   | Field-by-field mappings to UBL / Peppol / OCDS / eForms       |
-| `contexts/`     | JSON-LD `@context` files, versioned (forthcoming)             |
-| `schemas/`      | JSON Schema files derived from the canonical fragments        |
-| `PROVENANCE.md` | Per-file source SHA mapping back to the upstream platform     |
-| `GOVERNANCE.md` | Stewardship model and standards-liaison posture               |
+| Directory          | Contents                                                                |
+| ------------------ | ----------------------------------------------------------------------- |
+| `adrs/`            | Architecture Decision Records that establish the profile                |
+| `crosswalks/`      | Field-by-field mappings to UBL / Peppol / OCDS / eForms                 |
+| `contexts/`        | JSON-LD `@context` files, versioned (`v0.1/requirement.context.jsonld` shipped; remaining fragments forthcoming) |
+| `schemas/`         | JSON Schema files derived from the canonical fragments (forthcoming)    |
+| `correspondence/`  | Standards-track correspondence (intent-to-author letters, TSC threads)  |
+| `PROVENANCE.md`    | Per-file source SHA mapping back to the upstream platform               |
+| `GOVERNANCE.md`    | Stewardship model and standards-liaison posture                         |
 
 ## Roadmap
 
