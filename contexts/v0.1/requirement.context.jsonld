@@ -42,11 +42,11 @@
       "@type": "@vocab"
     },
     "mandatoryFlag": {
-      "@id": "ubl:ValueRequiredIndicator",
+      "@id": "a2a:mandatoryFlag",
       "@type": "xsd:boolean"
     },
     "dueAt": {
-      "@id": "ubl-cac:ApplicablePeriod",
+      "@id": "a2a:dueAt",
       "@type": "xsd:dateTime"
     },
     "standardSchema": {
