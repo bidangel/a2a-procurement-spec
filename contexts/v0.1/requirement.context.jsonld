@@ -1,0 +1,76 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://spec.bidangel.com/v0.1/",
+    "a2a": "https://spec.bidangel.com/v0.1/",
+    "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
+    "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
+    "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
+    "eforms": "http://publications.europa.eu/resource/eforms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Requirement": "a2a:Requirement",
+    "perRowKey": {
+      "@id": "a2a:perRowKey",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "ubl:ID",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "ubl:Name",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "ubl:Description",
+      "@type": "xsd:string"
+    },
+    "sectionRef": {
+      "@id": "a2a:sectionRef",
+      "@type": "xsd:string"
+    },
+    "requirementType": {
+      "@id": "a2a:requirementType",
+      "@type": "@vocab"
+    },
+    "requirementTypeCode": {
+      "@id": "a2a:requirementTypeCode",
+      "@type": "xsd:string"
+    },
+    "subType": {
+      "@id": "a2a:subType",
+      "@type": "@vocab"
+    },
+    "mandatoryFlag": {
+      "@id": "ubl:ValueRequiredIndicator",
+      "@type": "xsd:boolean"
+    },
+    "dueAt": {
+      "@id": "ubl-cac:ApplicablePeriod",
+      "@type": "xsd:dateTime"
+    },
+    "standardSchema": {
+      "@id": "a2a:standardSchema",
+      "@type": "@id"
+    },
+    "valueConstraints": {
+      "@id": "a2a:valueConstraints",
+      "@type": "@id"
+    },
+    "evidenceNeededSummary": {
+      "@id": "a2a:evidenceNeededSummary",
+      "@type": "xsd:string"
+    }
+  },
+  "_meta": {
+    "profileVersion": "v0.1",
+    "fragmentTypeName": "CanonicalRequirementFragment",
+    "contractSource": "packages/structured-rfx-adapters/src/contract.ts",
+    "crosswalkSource": "docs/crosswalks/ubl-peppol-requirement.md",
+    "excludedFromContext": [
+      "fields"
+    ],
+    "generator": "scripts/spec-context-build.mjs",
+    "note": "Generated artifact. Edit the field map under scripts/spec-context/fragments/ and re-run `pnpm spec:context:build`. Do not edit by hand."
+  }
+}
