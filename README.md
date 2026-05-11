@@ -13,6 +13,7 @@ UBL 2.3 / Peppol BIS Pre-Award / OCDS 1.1.5 / EU eForms semantics.
 >
 > **Intent to author** the Extension URI was recorded on 2026-05-10 —
 > see [`correspondence/2026-05-10-aaif-intent-to-author.md`](correspondence/2026-05-10-aaif-intent-to-author.md).
+> Active TSC discussion: [a2aproject/A2A#1832](https://github.com/a2aproject/A2A/discussions/1832) (posted 2026-05-11).
 
 ## Why this profile exists
 
