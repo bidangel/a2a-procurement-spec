@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://spec.bidangelai.com/v0.1/",
+    "a2a": "https://spec.bidangelai.com/v0.1/",
+    "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
+    "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
+    "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
+    "eforms": "http://publications.europa.eu/resource/eforms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Buyer": "a2a:Buyer",
+    "canonicalName": {
+      "@id": "ubl:Name",
+      "@type": "xsd:string"
+    },
+    "buyerType": {
+      "@id": "a2a:buyerType",
+      "@type": "xsd:string"
+    },
+    "parentBuyerId": {
+      "@id": "a2a:parentBuyerId",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "ubl:IdentificationCode",
+      "@type": "xsd:string"
+    },
+    "regionCode": {
+      "@id": "a2a:regionCode",
+      "@type": "xsd:string"
+    },
+    "legalIdentifier": {
+      "@id": "ubl:ID",
+      "@type": "xsd:string"
+    },
+    "legalIdentifierScheme": {
+      "@id": "a2a:legalIdentifierScheme",
+      "@type": "xsd:string"
+    }
+  },
+  "_meta": {
+    "profileVersion": "v0.1",
+    "fragmentTypeName": "Buyer",
+    "contractSource": "packages/domain/src/types/opportunity.ts",
+    "crosswalkSource": "docs/crosswalks/ubl-peppol-buyer.md",
+    "excludedFromContext": [
+      "id",
+      "regime",
+      "sourceConfidence",
+      "createdAt",
+      "updatedAt"
+    ],
+    "generator": "scripts/spec-context-build.mjs",
+    "note": "Generated artifact. Edit the field map under scripts/spec-context/fragments/ and re-run `pnpm spec:context:build`. Do not edit by hand."
+  }
+}
