@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A2A Procurement Profile</title>
+    <meta
+      name="description"
+      content="Draft agent-to-agent procurement interoperability profile layered on UBL 2.3, Peppol BIS Pre-Award, OCDS 1.1.5 and EU eForms."
+    />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <main>
+      <h1>A2A Procurement Profile</h1>
+      <p class="status">Draft v0.1 (in flight). Expect breaking changes until v1.0.</p>
+
+      <p>
+        A draft agent-to-agent procurement interoperability profile layered on
+        existing UBL 2.3, Peppol BIS Pre-Award, OCDS 1.1.5 and EU eForms
+        semantics. The canonical types align field by field with those
+        vocabularies wherever a mapping exists, and add new terms only where
+        the agent-to-agent workflow has no existing fit.
+      </p>
+      <p>
+        This site serves the machine-readable artifacts. The prose (ADRs,
+        crosswalks, governance) is published in the
+        <a href="https://github.com/bidangel/a2a-procurement-spec">source repository</a>.
+      </p>
+
+      <h2>Machine-readable artifacts</h2>
+      <ul>
+        <li>
+          <a href="/v0.1/">Vocabulary namespace v0.1</a>
+          (<code>https://spec.bidangelai.com/v0.1/</code>)
+        </li>
+        <li>
+          <a href="/contexts/v0.1/requirement.context.jsonld">Requirement JSON-LD context</a>
+          (<code>/contexts/v0.1/requirement.context.jsonld</code>)
+        </li>
+      </ul>
+      <p>
+        Contexts for the opportunity, buyer and evaluation criterion fragments,
+        and JSON Schema files for each fragment, are forthcoming.
+      </p>
+
+      <h2>Crosswalks</h2>
+      <ul>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-requirement.md">Requirement to UBL / Peppol</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-opportunity.md">Opportunity to UBL / Peppol</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-buyer.md">Buyer to UBL / Peppol</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-evaluation-criterion.md">Evaluation criterion to UBL / Peppol</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/canonical-criterion-type-eu-com-grow-map.md">Criterion type to EU-COM-GROW codelist</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/canonical-opportunity-status-lifecycle-map.md">Opportunity status lifecycle map</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/procurement-rejection-clause-audit.md">Rejection clause vocabulary audit</a></li>
+      </ul>
+
+      <h2>Design records and governance</h2>
+      <ul>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/tree/main/adrs">Architecture Decision Records</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/GOVERNANCE.md">Governance</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/PROVENANCE.md">Provenance</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/CONTRIBUTING.md">Contributing</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/correspondence/2026-05-10-aaif-intent-to-author.md">Intent-to-author letter (2026-05-10)</a></li>
+        <li><a href="https://github.com/a2aproject/A2A/discussions/1832">TSC discussion: a2aproject/A2A#1832</a></li>
+      </ul>
+
+      <h2>License</h2>
+      <p>
+        Code, schemas and JSON-LD contexts: Apache License 2.0. Prose: Creative
+        Commons Attribution 4.0 International.
+      </p>
+
+      <footer>
+        Stewarded by <a href="https://github.com/bidangel">BidAngel</a>.
+      </footer>
+    </main>
+  </body>
+</html>
