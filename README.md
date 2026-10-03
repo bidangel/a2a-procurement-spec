@@ -6,7 +6,7 @@ UBL 2.3 / Peppol BIS Pre-Award / OCDS 1.1.5 / EU eForms semantics.
 
 > Status: **Draft v0.1 (in flight).** This repository is the public
 > publishing surface for design notes, ADRs, field-by-field crosswalks,
-> and (forthcoming) JSON-LD `@context` files and reference schemas.
+> JSON-LD `@context` files, and (forthcoming) reference schemas.
 > Authoritative authoring lives upstream in the BidAngel platform
 > repository; published artifacts here are derived and provenanced
 > (see `PROVENANCE.md`).
@@ -38,11 +38,14 @@ the agent-to-agent workflow surface genuinely lacks an existing fit
 | ------------------ | ----------------------------------------------------------------------- |
 | `adrs/`            | Architecture Decision Records that establish the profile                |
 | `crosswalks/`      | Field-by-field mappings to UBL / Peppol / OCDS / eForms                 |
-| `contexts/`        | JSON-LD `@context` files, versioned (`v0.1/requirement.context.jsonld` shipped; remaining fragments forthcoming) |
+| `contexts/`        | JSON-LD `@context` files, versioned (`v0.1/`: requirement, opportunity, evaluation criterion, buyer) |
 | `schemas/`         | JSON Schema files derived from the canonical fragments (forthcoming)    |
 | `correspondence/`  | Standards-track correspondence (intent-to-author letters, TSC threads)  |
 | `PROVENANCE.md`    | Per-file source SHA mapping back to the upstream platform               |
 | `GOVERNANCE.md`    | Stewardship model and standards-liaison posture                         |
+
+The contexts and the vocabulary namespace document are served at
+[spec.bidangelai.com](https://spec.bidangelai.com/).
 
 ## Roadmap
 

@@ -22,50 +22,128 @@
         <code>@vocab</code>.
       </p>
       <p>
-        Only terms with no counterpart in UBL 2.3, Peppol BIS Pre-Award, OCDS
-        1.1.5 or EU eForms are defined here. Terms that map to an existing
-        vocabulary keep that vocabulary's IRI.
+        A term keeps the UBL 2.3 IRI when it corresponds exactly to a single
+        UBL element. It is defined in this namespace otherwise. The crosswalks
+        record the UBL, Peppol BIS Pre-Award, OCDS 1.1.5 and EU eForms mapping
+        for every term.
       </p>
 
       <h2>Contexts</h2>
+      <p>The context files are the normative source. One per canonical fragment:</p>
       <ul>
-        <li>
-          <a href="/contexts/v0.1/requirement.context.jsonld">requirement.context.jsonld</a>
-        </li>
+        <li><a href="/contexts/v0.1/requirement.context.jsonld">requirement.context.jsonld</a></li>
+        <li><a href="/contexts/v0.1/opportunity.context.jsonld">opportunity.context.jsonld</a></li>
+        <li><a href="/contexts/v0.1/evaluation-criterion.context.jsonld">evaluation-criterion.context.jsonld</a></li>
+        <li><a href="/contexts/v0.1/buyer.context.jsonld">buyer.context.jsonld</a></li>
       </ul>
 
-      <h2>Terms defined by the requirement context</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Term</th>
-              <th>Kind</th>
-              <th>Range</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td><code>a2a:Requirement</code></td><td>Class</td><td></td></tr>
-            <tr><td><code>a2a:perRowKey</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
-            <tr><td><code>a2a:sectionRef</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
-            <tr><td><code>a2a:requirementType</code></td><td>Property</td><td>vocabulary term</td></tr>
-            <tr><td><code>a2a:requirementTypeCode</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
-            <tr><td><code>a2a:subType</code></td><td>Property</td><td>vocabulary term</td></tr>
-            <tr><td><code>a2a:mandatoryFlag</code></td><td>Property</td><td><code>xsd:boolean</code></td></tr>
-            <tr><td><code>a2a:dueAt</code></td><td>Property</td><td><code>xsd:dateTime</code></td></tr>
-            <tr><td><code>a2a:standardSchema</code></td><td>Property</td><td>IRI</td></tr>
-            <tr><td><code>a2a:valueConstraints</code></td><td>Property</td><td>IRI</td></tr>
-            <tr><td><code>a2a:evidenceNeededSummary</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
-          </tbody>
-        </table>
+      <h2>Crosswalks</h2>
+      <ul>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-requirement.md">Requirement</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-opportunity.md">Opportunity</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-evaluation-criterion.md">Evaluation criterion</a></li>
+        <li><a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-buyer.md">Buyer</a></li>
+      </ul>
+
+      <!-- The term tables below are read from the context files when the
+           page loads, so they cannot drift from them. -->
+      <div id="terms">
+        <noscript>
+          <p>The term tables need JavaScript. The context files above list every term.</p>
+        </noscript>
       </div>
-      <p>
-        The context file is the normative source. Field-by-field mappings are in
-        the
-        <a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-requirement.md">requirement crosswalk</a>.
-      </p>
 
       <footer><a href="/">A2A Procurement Profile</a></footer>
     </main>
+
+    <script>
+      (function () {
+        var CONTEXTS = [
+          ['Requirement', 'requirement.context.jsonld'],
+          ['Opportunity', 'opportunity.context.jsonld'],
+          ['Evaluation criterion', 'evaluation-criterion.context.jsonld'],
+          ['Buyer', 'buyer.context.jsonld'],
+        ];
+        var root = document.getElementById('terms');
+
+        function el(tag, text) {
+          var node = document.createElement(tag);
+          if (text !== undefined) node.textContent = text;
+          return node;
+        }
+
+        function codeCell(text) {
+          var td = el('td');
+          td.appendChild(el('code', text));
+          return td;
+        }
+
+        function range(type) {
+          if (type === '@vocab') return 'vocabulary term';
+          if (type === '@id') return 'IRI';
+          return type;
+        }
+
+        function render(label, ctx) {
+          var section = el('section');
+          section.appendChild(el('h2', label + ' terms'));
+          var wrap = el('div');
+          wrap.className = 'table-wrap';
+          var table = el('table');
+          var head = el('tr');
+          ['Term', 'IRI', 'Range'].forEach(function (h) {
+            head.appendChild(el('th', h));
+          });
+          var thead = el('thead');
+          thead.appendChild(head);
+          table.appendChild(thead);
+          var body = el('tbody');
+          Object.keys(ctx).forEach(function (term) {
+            var def = ctx[term];
+            if (term.charAt(0) === '@') return;
+            var row = el('tr');
+            if (typeof def === 'string') {
+              // Prefix declarations end in a separator; the class term does not.
+              if (/[#\/:]$/.test(def)) return;
+              row.appendChild(codeCell(term));
+              row.appendChild(codeCell(def));
+              row.appendChild(el('td', 'class'));
+            } else {
+              row.appendChild(codeCell(term));
+              row.appendChild(codeCell(def['@id']));
+              var td = el('td');
+              var r = range(def['@type']);
+              if (r === def['@type']) td.appendChild(el('code', r));
+              else td.textContent = r;
+              row.appendChild(td);
+            }
+            body.appendChild(row);
+          });
+          table.appendChild(body);
+          wrap.appendChild(table);
+          section.appendChild(wrap);
+          return section;
+        }
+
+        Promise.all(
+          CONTEXTS.map(function (entry) {
+            return fetch('/contexts/v0.1/' + entry[1]).then(function (res) {
+              if (!res.ok) throw new Error(entry[1] + ': HTTP ' + res.status);
+              return res.json();
+            });
+          }),
+        )
+          .then(function (docs) {
+            docs.forEach(function (doc, i) {
+              root.appendChild(render(CONTEXTS[i][0], doc['@context']));
+            });
+          })
+          .catch(function () {
+            root.appendChild(
+              el('p', 'The term tables could not be loaded. The context files above list every term.'),
+            );
+          });
+      })();
+    </script>
   </body>
 </html>
