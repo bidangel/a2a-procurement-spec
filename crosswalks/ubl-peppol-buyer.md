@@ -30,9 +30,11 @@ columns at `packages/db/src/schema/index.ts:126`) is a small,
 intentionally lean entity; UBL `cac:Party` is much richer (23 child
 elements). The ratio inverts the previous crosswalks: instead of
 "how do we map our rich shape to UBL," it's "how much of UBL do we
-absorb into our canonical Buyer." On the 9 existing canonical fields the
-distribution is **6 exact / 2 partial / 0 novel / 1 platform-internal**
-out of 9 (≈89% UBL-aligned on procurement-meaningful fields). The
+absorb into our canonical Buyer." Across the 10 rows of the table below
+(the existing canonical columns plus the two additions) the distribution
+is **3 exact / 4 partial / 0 novel / 3 platform-internal**. All 7
+procurement-meaningful fields map to UBL, exactly or partially; none is
+novel. The
 relevant question is which of the ~14 UBL/OCDS Party fields we **don't**
 have are worth promoting to canonical Buyer columns vs. leaving in the
 `fields` spillover or a future side-table.

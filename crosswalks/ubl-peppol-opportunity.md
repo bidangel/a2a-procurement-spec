@@ -26,14 +26,17 @@ Sources:
 
 ## Bottom line
 
-**GREEN.** Mapping is feasible at high alignment. Of ~22 proposed fields on
-`CanonicalOpportunityFragment`, the bucket distribution is **6 exact / 9
-partial / 1 novel / 4 platform-internal** (the platform-internal four —
+**GREEN.** Mapping is feasible at high alignment. Across the 22 rows of the
+table below, the bucket distribution is **6 exact / 10 partial / 2 novel / 4
+platform-internal** (the platform-internal four —
 `regime`, `sourceFamily`, `procurementRegime`, `sourceConfidence` — do not
 count toward the novel-share ceiling because they are platform-pipeline
 metadata not emitted to UBL). On procurement-meaningful fields the ratio is
-**6 / 9 / 1 of 16** (≈ 94 % UBL-aligned). Novel territory is one field
-(`primaryCategoryScheme`) and is well below the 20 % ceiling. The probe
+**6 / 10 / 2 of 18** (≈ 89 % UBL-aligned, 11 % novel). Novel territory is two
+fields: `primaryCategoryScheme`, and `buyerRef.parentName`, which the table
+marks novel-ish and is counted here as novel (the buyer crosswalk later
+records its canonical counterpart, `parentBuyerId`, as partial). That is
+below the 20 % ceiling. The probe
 recommends shipping the typed shape into `contract.ts` ahead of slice 71's
 implementation, same shape as the evaluation-criterion path. Three open
 questions to resolve (below).
@@ -97,13 +100,7 @@ export interface CanonicalOpportunityFragment {
 }
 
 export type CanonicalOpportunityType =
-  | 'goods'
-  | 'services'
-  | 'works'
-  | 'mixed_goods_services'
-  | 'concession'
-  | 'framework'
-  | 'other';
+  'goods' | 'services' | 'works' | 'mixed_goods_services' | 'concession' | 'framework' | 'other';
 
 export type CanonicalOpportunityStatus = 'planned' | 'active' | 'closed' | 'awarded' | 'cancelled';
 ```
@@ -207,8 +204,8 @@ export type CanonicalOpportunityStatus = 'planned' | 'active' | 'closed' | 'awar
 
 ## What this probe says about the rest of the work
 
-- **Bucket distribution at ~94% UBL-aligned** on procurement-meaningful
-  fields (16) confirms the layered-on-UBL discipline is the right shape
+- **Bucket distribution at ~89% UBL-aligned** on procurement-meaningful
+  fields (18) confirms the layered-on-UBL discipline is the right shape
   for this fragment. Platform-internal fields (4) sit cleanly outside
   the UBL-emit surface and don't pressure the novel-share ceiling.
 - **Slice 71's source-metadata extension is the right home for

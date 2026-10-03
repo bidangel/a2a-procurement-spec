@@ -33,10 +33,12 @@ Sources:
 ## Bottom line
 
 **GREEN-with-a-load-bearing-clarification.** The field-by-field mapping
-is feasible at high alignment: of ~14 proposed fragment fields, the
-distribution is **6 exact / 6 partial / 1 novel / 1 platform-internal**
-on procurement-meaningful fields (≈92 % UBL-aligned; novel territory
-one field, well below the 20 % ceiling).
+is feasible at high alignment: across the 18 rows of the table below,
+the distribution is **5 exact / 10 partial / 2 novel / 1
+platform-internal**. On the 17 procurement-meaningful fields that is
+≈88 % UBL-aligned; novel territory is the two fields the table marks
+novel-ish (`requirementType`, `standardSchema`), 12 %, below the 20 %
+ceiling.
 
 The clarification: **the existing `requirement` canonical table already
 carries _both_ subType=narrative and subType=questionnaire rows**
@@ -86,15 +88,7 @@ export type CanonicalRequirementType =
 export type CanonicalRequirementSubType = 'narrative' | 'questionnaire';
 
 export type CanonicalRequirementValueDataType =
-  | 'boolean'
-  | 'integer'
-  | 'number'
-  | 'string'
-  | 'amount'
-  | 'quantity'
-  | 'date'
-  | 'period'
-  | 'uri';
+  'boolean' | 'integer' | 'number' | 'string' | 'amount' | 'quantity' | 'date' | 'period' | 'uri';
 
 export interface CanonicalRequirementValueConstraints {
   dataType: CanonicalRequirementValueDataType;
@@ -265,11 +259,12 @@ no value constraints — yes/no questions only).
 
 ## What this probe says about the rest of the work
 
-- Bucket distribution at ≈92 % UBL-aligned on procurement-meaningful
-  fields keeps us comfortably below the 20 % novel-share ceiling. The
-  one novel-ish field (`requirementType`) is internally meaningful
-  (drives reviewer-queue routing) and absent from UBL by design;
-  same shape as the other crosswalks' canonical enums.
+- Bucket distribution at ≈88 % UBL-aligned on procurement-meaningful
+  fields keeps us below the 20 % novel-share ceiling. Of the two
+  novel-ish fields, `requirementType` is internally meaningful
+  (drives reviewer-queue routing) and absent from UBL by design,
+  same shape as the other crosswalks' canonical enums; `standardSchema`
+  is the cross-pursuit-reuse extension (row 10).
 - **Q1's resolution affects ADR 0026 §Amendments and the
   `CanonicalOutputKind` enum.** If (A) — recommended — we add a
   third 2026-05-08 amendment retiring the stub
