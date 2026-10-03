@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A2A Procurement Profile vocabulary v0.1</title>
+    <meta
+      name="description"
+      content="Namespace document for the A2A Procurement Profile v0.1 vocabulary."
+    />
+    <link rel="stylesheet" href="/site.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Vocabulary namespace v0.1</h1>
+      <p class="status">Draft. Expect breaking changes until v1.0.</p>
+
+      <p>
+        <code>https://spec.bidangelai.com/v0.1/</code> is the namespace IRI of
+        the <a href="/">A2A Procurement Profile</a> v0.1 vocabulary. The JSON-LD
+        contexts bind it to the <code>a2a:</code> prefix and use it as
+        <code>@vocab</code>.
+      </p>
+      <p>
+        Only terms with no counterpart in UBL 2.3, Peppol BIS Pre-Award, OCDS
+        1.1.5 or EU eForms are defined here. Terms that map to an existing
+        vocabulary keep that vocabulary's IRI.
+      </p>
+
+      <h2>Contexts</h2>
+      <ul>
+        <li>
+          <a href="/contexts/v0.1/requirement.context.jsonld">requirement.context.jsonld</a>
+        </li>
+      </ul>
+
+      <h2>Terms defined by the requirement context</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Kind</th>
+              <th>Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>a2a:Requirement</code></td><td>Class</td><td></td></tr>
+            <tr><td><code>a2a:perRowKey</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
+            <tr><td><code>a2a:sectionRef</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
+            <tr><td><code>a2a:requirementType</code></td><td>Property</td><td>vocabulary term</td></tr>
+            <tr><td><code>a2a:requirementTypeCode</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
+            <tr><td><code>a2a:subType</code></td><td>Property</td><td>vocabulary term</td></tr>
+            <tr><td><code>a2a:mandatoryFlag</code></td><td>Property</td><td><code>xsd:boolean</code></td></tr>
+            <tr><td><code>a2a:dueAt</code></td><td>Property</td><td><code>xsd:dateTime</code></td></tr>
+            <tr><td><code>a2a:standardSchema</code></td><td>Property</td><td>IRI</td></tr>
+            <tr><td><code>a2a:valueConstraints</code></td><td>Property</td><td>IRI</td></tr>
+            <tr><td><code>a2a:evidenceNeededSummary</code></td><td>Property</td><td><code>xsd:string</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        The context file is the normative source. Field-by-field mappings are in
+        the
+        <a href="https://github.com/bidangel/a2a-procurement-spec/blob/main/crosswalks/ubl-peppol-requirement.md">requirement crosswalk</a>.
+      </p>
+
+      <footer><a href="/">A2A Procurement Profile</a></footer>
+    </main>
+  </body>
+</html>
