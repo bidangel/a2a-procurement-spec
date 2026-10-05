@@ -20,8 +20,9 @@ We intend to engage the following bodies as the profile matures:
 - **OpenPeppol Pre-Award Domain Community** — the natural home for the
   pre-award structural work this profile builds on. Liaison to be
   initiated alongside v0.1 publication.
-- **AAIF (Agent-to-Agent Interoperability Forum) TSC** — for the
-  agent-protocol layering specifically.
+- **A2A project Technical Steering Committee** (A2A is a Linux
+  Foundation project hosted by the Agentic AI Foundation, AAIF) — for
+  the agent-protocol layering specifically.
 - **Open Contracting Partnership** — for OCDS-aligned crosswalk review,
   particularly around the Requirements extension shape.
 

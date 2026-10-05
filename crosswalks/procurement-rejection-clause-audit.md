@@ -10,6 +10,16 @@ proposal under discussion at
 namespace prefix; this audit covers what BidAngel would be ratifying
 under `procurement.*`.
 
+> **Status note (2026-10-06).** The `RejectionRecord` artifact this
+> audit was written for does not exist. Concordia's maintainer withdrew
+> it on 2026-06-18 and confirmed on 2026-10-05 that Concordia has no
+> `RejectionRecord`; what Concordia ships is `RevocationRecord`, a
+> different artifact. No protocol has ratified a `mandate.*` or
+> `procurement.*` clause namespace. The audit stands as a statement of
+> what a typed rejection artifact would need to carry for procurement,
+> not as a registry anyone has agreed to. See ADR 0035, amendment of
+> 2026-10-06.
+
 The audit applies the ADR-0034 §1 layered-on-UBL discipline (exact /
 partial / novel classification, 20 % novel-share ceiling) to a clause
 enumeration rather than to a fragment's field shape. Vocabulary
