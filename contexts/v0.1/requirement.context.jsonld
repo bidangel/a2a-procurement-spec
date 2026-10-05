@@ -2,15 +2,15 @@
   "@context": {
     "@version": 1.1,
     "@vocab": "https://spec.bidangelai.com/v0.1/",
-    "a2a": "https://spec.bidangelai.com/v0.1/",
+    "bapp": "https://spec.bidangelai.com/v0.1/",
     "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
     "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
     "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
     "eforms": "http://publications.europa.eu/resource/eforms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "Requirement": "a2a:Requirement",
+    "Requirement": "bapp:Requirement",
     "perRowKey": {
-      "@id": "a2a:perRowKey",
+      "@id": "bapp:perRowKey",
       "@type": "xsd:string"
     },
     "externalId": {
@@ -26,39 +26,39 @@
       "@type": "xsd:string"
     },
     "sectionRef": {
-      "@id": "a2a:sectionRef",
+      "@id": "bapp:sectionRef",
       "@type": "xsd:string"
     },
     "requirementType": {
-      "@id": "a2a:requirementType",
+      "@id": "bapp:requirementType",
       "@type": "@vocab"
     },
     "requirementTypeCode": {
-      "@id": "a2a:requirementTypeCode",
+      "@id": "bapp:requirementTypeCode",
       "@type": "xsd:string"
     },
     "subType": {
-      "@id": "a2a:subType",
+      "@id": "bapp:subType",
       "@type": "@vocab"
     },
     "mandatoryFlag": {
-      "@id": "a2a:mandatoryFlag",
+      "@id": "bapp:mandatoryFlag",
       "@type": "xsd:boolean"
     },
     "dueAt": {
-      "@id": "a2a:dueAt",
+      "@id": "bapp:dueAt",
       "@type": "xsd:dateTime"
     },
     "standardSchema": {
-      "@id": "a2a:standardSchema",
+      "@id": "bapp:standardSchema",
       "@type": "@id"
     },
     "valueConstraints": {
-      "@id": "a2a:valueConstraints",
+      "@id": "bapp:valueConstraints",
       "@type": "@id"
     },
     "evidenceNeededSummary": {
-      "@id": "a2a:evidenceNeededSummary",
+      "@id": "bapp:evidenceNeededSummary",
       "@type": "xsd:string"
     }
   },
