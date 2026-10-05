@@ -20,6 +20,116 @@ Concordia v0.5+ and A2CN v0.3+ reference implementations. The shape
 recorded here is the shape we intend to commit to absent material
 objections.
 
+> **Amended 2026-10-06.** The composition exercise has been run and the
+> adjacent maintainers have narrowed what they agree to. The amendment
+> below records both. Where it conflicts with the text that follows, the
+> amendment governs.
+
+## Amendment (2026-10-06): what is agreed, and what the composition exercise found
+
+The decision in §1 stands: this profile composes with A2CN and Concordia
+and does not author a session, an envelope or a receipt format. What has
+changed is how much of that composition the adjacent maintainers have
+endorsed, and which Concordia artifacts exist to compose with. This ADR
+stays **Proposed**.
+
+### A. What the adjacent maintainers have agreed
+
+- **Concordia.** Erik Newton's position, stated in review of
+  [concordia-a2cn/procurement-patterns#2](https://github.com/concordia-a2cn/procurement-patterns/pull/2#issuecomment-5999253749)
+  on 2026-10-05, is limited to one statement: "Concordia receipts can
+  point at these fragments through the existing `references[]`". He
+  states that it does not change Concordia, does not attest the
+  crosswalks, the JSON-LD contexts, the Extension URI or any later
+  filing, and is not an A2A registration. He does not speak for A2CN.
+- **A2CN.** No statement. The A2CN maintainer confirmed the joint
+  repository and path on 2026-06-17 and has not commented since.
+- **A2A project.** The intent-to-author thread
+  ([a2aproject/A2A#1832](https://github.com/a2aproject/A2A/discussions/1832))
+  has had no reply from a member of the A2A Technical Steering
+  Committee. Nothing is registered or on file with the A2A project.
+
+The profile is therefore authored by BidAngel alone. It is not
+co-authored or co-signed, and it must not be described that way.
+
+### B. Concordia artifacts this ADR assumed that do not exist
+
+- **`RejectionRecord` was never shipped.** Erik Newton corrected this on
+  2026-06-18
+  ([#1737](https://github.com/a2aproject/A2A/discussions/1737)) and
+  again on 2026-10-05. Concordia ships `ApprovalReceipt`,
+  `FulfillmentAttestation` and `RevocationRecord`; the last is a
+  different artifact, not a rename.
+- **No umbrella Registered Vocabulary Profile has been filed.** The
+  plan that an umbrella registration would reference this profile is
+  withdrawn.
+
+Consequences for the text below:
+
+- **§2, `procurement.*` clause namespace.** There is no Concordia
+  artifact for it to plug into. The reservation stands as this
+  profile's own convention, and
+  `docs/crosswalks/procurement-rejection-clause-audit.md` stands as a
+  statement of what a typed rejection artifact would need to carry. It
+  is not a registry any other protocol has agreed to.
+- **§2, relationship verbs.** `satisfies` has not been added to
+  Concordia's vocabulary. It travels as an unknown relationship value,
+  which Concordia preserves as an opaque string (Concordia SPEC
+  §11.5.5). `approves` is defined by Concordia §9.6.4b.
+- **Open questions 1 and 2.** Both ask how `RejectionRecord` should be
+  shaped. Neither is under discussion. They are kept as the positions
+  this profile would take if the artifact is ever proposed.
+- **Consequences, "Credible co-authoring slot".** Withdrawn; see A.
+
+### C. What the composition exercise found
+
+The worked example proposed in
+[bidangel/a2a-procurement-spec#4](https://github.com/bidangel/a2a-procurement-spec/issues/4)
+is built as
+[concordia-a2cn/procurement-patterns#3](https://github.com/concordia-a2cn/procurement-patterns/pull/3):
+a best-and-final-offer round in which a human approves an acceptance
+that crosses a mandate threshold. It was run against the Concordia
+reference implementation at `847729c` (0.10.0) and the A2CN reference
+implementation at `c7ff3f1` (0.3.0).
+
+- **The split holds.** A procurement fragment rides inside the A2CN
+  offer's terms, the A2CN act hash covers it, and a Concordia
+  `ApprovalReceipt` binds to that same digest and references the
+  session, the mandate and the opportunity. Concordia's verifier
+  accepts the receipt; A2CN pauses the session as specified.
+- **The pause belongs to the accepting party.** In A2CN the approval
+  pause triggers on the act of the party whose mandate carries the
+  threshold, so the buyer's approval attaches to the buyer agent's
+  acceptance, not to the supplier's offer as issue #4 proposed.
+- **A2CN does not accept the Concordia receipt as issued.** Three
+  differences between the two reference implementations:
+  1. A2CN compares the receipt's offer hash to its own base64url
+     encoding; Concordia's schema requires `sha256:<hex>`. Same digest.
+  2. A2CN reads the approver from a top-level `approver_did`; Concordia
+     carries `approver.identity`.
+  3. Concordia recommends `urn:a2cn:session:<id>` for the session
+     reference; A2CN accepts the bare id or `a2cn:session:<id>`.
+
+  Concordia's maintainer has confirmed that Concordia keeps the first
+  two as specified. None of the three is this profile's to resolve.
+
+### D. Changes on this profile's side
+
+- The JSON-LD contexts bind the prefix `bapp:` to the profile namespace
+  `https://spec.bidangelai.com/v0.1/`. They previously used `a2a:`,
+  which a reader could take for a namespace owned by the A2A project.
+  The namespace and term IRIs are unchanged.
+- All four fragments now have a v0.1 context.
+- The fragments, contexts and crosswalks are proposed for the joint
+  repository
+  ([procurement-patterns#2](https://github.com/concordia-a2cn/procurement-patterns/pull/2))
+  as payload fragments, under that repository's licence, not as a
+  registration.
+
+ADR 0032 §10 in the upstream monorepo already records the Phase B
+consequence of this composition. It relies on Concordia `references[]`,
+which exists, and is not changed by this amendment.
+
 ## Context
 
 The AAIF Extension URI submission (intent-to-author filed 2026-05-10 per
@@ -125,6 +235,10 @@ when the parties are negotiating a procurement event, what clause
 types a rejection enumerates.
 
 ### 2. What this profile DOES own, positively
+
+> Amended 2026-10-06: the clause namespace has no Concordia artifact to
+> attach to, and `satisfies` is not part of Concordia's vocabulary. See
+> the amendment, part B.
 
 The owned surface is restricted to procurement-specific semantics. In
 order:
@@ -241,7 +355,8 @@ and is not affected by this paragraph.
   profile picks up the operational benefit (running code, debugged
   edge cases, completed security review of the envelope/receipt
   layers) without authoring it.
-- **Credible co-authoring slot.** A profile that brings procurement
+- **Credible co-authoring slot.** _(Withdrawn 2026-10-06; see the
+  amendment, part A.)_ A profile that brings procurement
   payload semantics to a session+envelope substrate two adjacent
   protocols already maintain has a clear distinctive contribution and
   a clear collaboration story. Standards-review pressure is materially
@@ -318,6 +433,9 @@ and is not affected by this paragraph.
   profile as an extension.
 
 ## Open questions
+
+> Amended 2026-10-06: Concordia has no `RejectionRecord`, so neither
+> question is under discussion. See the amendment, part B.
 
 Two open questions from Erik's Draft B
 ([`#discussioncomment-16883023`](https://github.com/a2aproject/A2A/discussions/1737#discussioncomment-16883023))
