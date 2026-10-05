@@ -2,15 +2,15 @@
   "@context": {
     "@version": 1.1,
     "@vocab": "https://spec.bidangelai.com/v0.1/",
-    "a2a": "https://spec.bidangelai.com/v0.1/",
+    "bapp": "https://spec.bidangelai.com/v0.1/",
     "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
     "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
     "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
     "eforms": "http://publications.europa.eu/resource/eforms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "Opportunity": "a2a:Opportunity",
+    "Opportunity": "bapp:Opportunity",
     "perRowKey": {
-      "@id": "a2a:perRowKey",
+      "@id": "bapp:perRowKey",
       "@type": "xsd:string"
     },
     "externalId": {
@@ -26,23 +26,23 @@
       "@type": "xsd:string"
     },
     "buyerRef": {
-      "@id": "a2a:buyerRef",
+      "@id": "bapp:buyerRef",
       "@type": "@id"
     },
     "opportunityType": {
-      "@id": "a2a:opportunityType",
+      "@id": "bapp:opportunityType",
       "@type": "@vocab"
     },
     "opportunityTypeCode": {
-      "@id": "a2a:opportunityTypeCode",
+      "@id": "bapp:opportunityTypeCode",
       "@type": "xsd:string"
     },
     "contractVehicle": {
-      "@id": "a2a:contractVehicle",
+      "@id": "bapp:contractVehicle",
       "@type": "xsd:string"
     },
     "status": {
-      "@id": "a2a:status",
+      "@id": "bapp:status",
       "@type": "@vocab"
     },
     "publishAt": {
@@ -50,15 +50,15 @@
       "@type": "xsd:dateTime"
     },
     "dueAt": {
-      "@id": "a2a:dueAt",
+      "@id": "bapp:dueAt",
       "@type": "xsd:dateTime"
     },
     "estimatedValueLow": {
-      "@id": "a2a:estimatedValueLow",
+      "@id": "bapp:estimatedValueLow",
       "@type": "xsd:double"
     },
     "estimatedValueHigh": {
-      "@id": "a2a:estimatedValueHigh",
+      "@id": "bapp:estimatedValueHigh",
       "@type": "xsd:double"
     },
     "currency": {
@@ -66,15 +66,15 @@
       "@type": "xsd:string"
     },
     "geography": {
-      "@id": "a2a:geography",
+      "@id": "bapp:geography",
       "@type": "xsd:string"
     },
     "noticeId": {
-      "@id": "a2a:noticeId",
+      "@id": "bapp:noticeId",
       "@type": "xsd:string"
     },
     "lotRef": {
-      "@id": "a2a:lotRef",
+      "@id": "bapp:lotRef",
       "@type": "xsd:string"
     },
     "primaryCategoryCode": {
@@ -82,7 +82,7 @@
       "@type": "xsd:string"
     },
     "primaryCategoryScheme": {
-      "@id": "a2a:primaryCategoryScheme",
+      "@id": "bapp:primaryCategoryScheme",
       "@type": "@vocab"
     }
   },

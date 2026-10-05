@@ -2,23 +2,23 @@
   "@context": {
     "@version": 1.1,
     "@vocab": "https://spec.bidangelai.com/v0.1/",
-    "a2a": "https://spec.bidangelai.com/v0.1/",
+    "bapp": "https://spec.bidangelai.com/v0.1/",
     "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
     "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
     "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
     "eforms": "http://publications.europa.eu/resource/eforms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "Buyer": "a2a:Buyer",
+    "Buyer": "bapp:Buyer",
     "canonicalName": {
       "@id": "ubl:Name",
       "@type": "xsd:string"
     },
     "buyerType": {
-      "@id": "a2a:buyerType",
+      "@id": "bapp:buyerType",
       "@type": "xsd:string"
     },
     "parentBuyerId": {
-      "@id": "a2a:parentBuyerId",
+      "@id": "bapp:parentBuyerId",
       "@type": "xsd:string"
     },
     "countryCode": {
@@ -26,7 +26,7 @@
       "@type": "xsd:string"
     },
     "regionCode": {
-      "@id": "a2a:regionCode",
+      "@id": "bapp:regionCode",
       "@type": "xsd:string"
     },
     "legalIdentifier": {
@@ -34,7 +34,7 @@
       "@type": "xsd:string"
     },
     "legalIdentifierScheme": {
-      "@id": "a2a:legalIdentifierScheme",
+      "@id": "bapp:legalIdentifierScheme",
       "@type": "xsd:string"
     }
   },

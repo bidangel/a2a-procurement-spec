@@ -2,15 +2,15 @@
   "@context": {
     "@version": 1.1,
     "@vocab": "https://spec.bidangelai.com/v0.1/",
-    "a2a": "https://spec.bidangelai.com/v0.1/",
+    "bapp": "https://spec.bidangelai.com/v0.1/",
     "ubl": "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2#",
     "ubl-cac": "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2#",
     "ocds": "https://standard.open-contracting.org/schema/v1__1__5/extensions/requirements/master/release-schema.json#/",
     "eforms": "http://publications.europa.eu/resource/eforms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "EvaluationCriterion": "a2a:EvaluationCriterion",
+    "EvaluationCriterion": "bapp:EvaluationCriterion",
     "perRowKey": {
-      "@id": "a2a:perRowKey",
+      "@id": "bapp:perRowKey",
       "@type": "xsd:string"
     },
     "externalId": {
@@ -26,7 +26,7 @@
       "@type": "xsd:string"
     },
     "criterionType": {
-      "@id": "a2a:criterionType",
+      "@id": "bapp:criterionType",
       "@type": "@vocab"
     },
     "criterionTypeCode": {
@@ -34,7 +34,7 @@
       "@type": "xsd:string"
     },
     "evaluationMethod": {
-      "@id": "a2a:evaluationMethod",
+      "@id": "bapp:evaluationMethod",
       "@type": "@vocab"
     },
     "weightNumeric": {
@@ -46,11 +46,11 @@
       "@type": "xsd:string"
     },
     "lotRef": {
-      "@id": "a2a:lotRef",
+      "@id": "bapp:lotRef",
       "@type": "xsd:string"
     },
     "parentCriterionPerRowKey": {
-      "@id": "a2a:parentCriterionPerRowKey",
+      "@id": "bapp:parentCriterionPerRowKey",
       "@type": "xsd:string"
     },
     "cpvCode": {
@@ -58,7 +58,7 @@
       "@type": "xsd:string"
     },
     "legislationRef": {
-      "@id": "a2a:legislationRef",
+      "@id": "bapp:legislationRef",
       "@type": "xsd:string"
     }
   },
